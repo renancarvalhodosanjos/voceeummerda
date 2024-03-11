@@ -1,0 +1,172 @@
+
+
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.game {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#87CEEB, #E0F6FF);
+  display: flex;
+  overflow: hidden;
+ 
+}
+
+.sol{
+
+  position: absolute;
+  background-image: url(img/sol.png);
+  width: 25%;
+  height: 25%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.nuvens{
+
+  position: absolute;
+  background-image: url(img/clouds.png);
+  width: 20%;
+  height: 20%;
+  background-size: 100% 100%;
+  animation: nuvens 10s linear infinite;
+ 
+
+}
+
+
+.pessoa {
+
+  width: 8%;
+  padding-top: 20%;
+  background-image: url(img/pessoa.gif);
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0%;
+  left: 5%;
+
+}
+
+.merda {
+
+  width: 2%;
+  height: auto;
+  padding-top: 3%; /* Isso cria uma div quadrada */
+  background-image: url(img/merda.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  animation: merda 2s linear infinite;
+  bottom: 0%;
+  right: 0%; /* Garante que a animação sempre comece da posição correta */
+  }
+
+
+
+  .menu {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10%;
+    border-radius: 5%;
+    text-align: center;
+    color: white;
+    z-index: 999;
+    
+
+}
+
+.restart-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5% 10%;
+  border: none;
+  cursor: pointer;
+  border-radius: 5%;
+}
+
+.restart-button:hover {
+  background-color: #45a049;
+}
+
+  .jump {
+    animation: jump 750ms linear;
+  }
+  
+
+  @keyframes merda {
+    0% {
+      right: 0%;
+    }
+    100% {
+      right: 100%;
+    }
+  }
+
+  @keyframes jump {
+    0% {
+      bottom: 0%;
+    }
+
+    10% {
+      bottom: 5%;
+    }
+  
+    20% {
+      bottom: 10%;
+    }
+
+    30% {
+      bottom: 15%;
+    }
+  
+    40% {
+      bottom: 20%;
+    }
+
+    50% {
+      bottom: 30%;
+    }
+
+  
+    60% {
+      bottom: 20%;
+    }
+
+    70% {
+      bottom:15%;
+    }
+  
+    80% {
+      bottom: 10%;
+    }
+
+    90% {
+      bottom: 5%;
+    }
+
+    100% {
+      bottom: 0%;
+    }
+
+
+  }
+
+  @keyframes nuvens {
+    0% {
+      right: 0%;
+    }
+    100% {
+      right: 100%;
+    }
+  }
