@@ -90,14 +90,81 @@ body, html {
 
 .merda {
 
-
-  outline: 1px solid red;
-  
   background-image: url(img/merda.png);
- 
+  border-radius: 25%;
+  width: 3%;
+  padding-top: 2%;
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: 0%;
+  right: -3%;
+  
+}
 
-  }
+/*.merda1 {
 
+    background-image: url(img/merda.png);
+    border-radius: 25%;
+    width: 3%;
+    padding-top: 2%;
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    animation: merda1 2s linear infinite;
+    animation-delay: 1s;
+    position: absolute;
+    bottom: 0%;
+    right: -3%;
+    
+ }
+
+.merda2 {
+
+      background-image: url(img/merda.png);
+      border-radius: 25%;
+      width: 3%;
+      padding-top: 2%;
+      background-size:100% 100%;
+      background-repeat: no-repeat;
+      animation: merda2 3s linear infinite;
+      animation-delay: 3s;
+      position: absolute;
+      bottom: 0%;
+      right: -3%;
+      
+      }
+
+.merda3 {
+
+        background-image: url(img/merda.png);
+        border-radius: 25%;
+        width: 3%;
+        padding-top: 2%;
+        background-size:100% 100%;
+        background-repeat: no-repeat;
+        animation: merda3 4s linear infinite;
+        animation-delay: 4s;
+        position: absolute;
+        bottom: 0%;
+        right: -3%;
+        
+        }
+
+.merda4 {
+
+          background-image: url(img/merda.png);
+          border-radius: 25%;
+          width: 3%;
+          padding-top: 2%;
+          background-size:100% 100%;
+          background-repeat: no-repeat;
+          animation: merda4 5s linear infinite;
+          animation-delay: 5s;
+          position: absolute;
+          bottom: 0%;
+          right: -3%;
+          
+          }*/
 
 
   .menu {
@@ -137,9 +204,55 @@ body, html {
   
 
   @keyframes merda {
+
     0% {
-      right:0%;
+      right:-3%;
     }
+
+    100% {
+      right:100%;
+    }
+  }
+
+  @keyframes merda1 {
+
+    0% {
+      right:-3%;
+    }
+
+    100% {
+      right:100%;
+    }
+  }
+
+  @keyframes merda2 {
+
+    0% {
+      right:-3%;
+    }
+
+    100% {
+      right:100%;
+    }
+  }
+
+  @keyframes merda3 {
+
+    0% {
+      right:-3%;
+    }
+
+    100% {
+      right:100%;
+    }
+  }
+
+  @keyframes merda4 {
+
+    0% {
+      right:-3%;
+    }
+
     100% {
       right:100%;
     }

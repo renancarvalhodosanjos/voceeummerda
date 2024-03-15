@@ -1,5 +1,5 @@
 const pessoa = document.querySelector(".pessoa");
-const merda = document.getElementById("merda");
+
 const pontuacao = document.querySelector('.pontuacao'); // Selecionando o elemento score
 
 let alreadyJump = false;
@@ -70,6 +70,42 @@ function changeBackgroundImage2() {
 
 // Chama a função para mudar a imagem de fundo a cada 30 segundos (30000 milissegundos)
 setInterval(changeBackgroundImage2, 30000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ativarAnimacao() {
+  var merda = document.getElementById('merda');
+  merda.style.animation = 'none'; // Limpa a animação
+  void merda.offsetWidth; // Reinicia a renderização
+  merda.style.animation = 'merda 1s linear'; // Define a animação novamente
+}
+
+function iniciarAnimacaoAleatoria() {
+  ativarAnimacao();
+  var tempoAleatorio = Math.random() * 4000 + 1000; // Gera um número aleatório entre 1 e 5 segundos (em milissegundos)
+  setTimeout(iniciarAnimacaoAleatoria, tempoAleatorio);
+}
+
+iniciarAnimacaoAleatoria();
+
+
+
+
+
 
 
 
@@ -190,7 +226,7 @@ function detectCollision() {
       menu.style.display = 'none';
       pessoa.style.backgroundImage = "url(img/pessoa.gif)";
       merda.style.backgroundImage = "url(img/merda.png)";
-      merda.style.animation = "merda 1s linear infinite";
+      merda.style.animation = "none";
     });
 
     return true;
