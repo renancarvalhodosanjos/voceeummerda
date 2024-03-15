@@ -9,8 +9,8 @@ let count = 0;
 // Lista de URLs de imagens que deseja usar como background
 const imageUrls = [
 
-  'img/fundonoite.jpg',
-  'img/fundo.jpg'
+  'img/fundonoite.png',
+  'img/fundodia.png'
   
 ];
 
@@ -73,6 +73,7 @@ setInterval(changeBackgroundImage2, 30000);
 
 
 
+//TITANICA DE MERDA e CHUVA DE MERDA
 
 
 
@@ -86,21 +87,27 @@ setInterval(changeBackgroundImage2, 30000);
 
 
 
-
-function ativarAnimacao() {
-  var merda = document.getElementById('merda');
-  merda.style.animation = 'none'; // Limpa a animação
-  void merda.offsetWidth; // Reinicia a renderização
-  merda.style.animation = 'merda 1s linear'; // Define a animação novamente
+function ativarAnimacao(elementId, duracao) {
+  var elemento = document.getElementById(elementId);
+  elemento.style.animation = 'none'; // Limpa a animação
+  void elemento.offsetWidth; // Reinicia a renderização
+  elemento.style.animation = `${elementId} ${duracao}s linear`; // Define a animação novamente
 }
 
-function iniciarAnimacaoAleatoria() {
-  ativarAnimacao();
-  var tempoAleatorio = Math.random() * 4000 + 1000; // Gera um número aleatório entre 1 e 5 segundos (em milissegundos)
-  setTimeout(iniciarAnimacaoAleatoria, tempoAleatorio);
+function iniciarAnimacaoAleatoria(elementId) {
+  var duracaoAleatoria = Math.random() * 4 + 1; // Gera um número aleatório entre 1 e 5 segundos
+  ativarAnimacao(elementId, duracaoAleatoria);
+  var tempoAleatorio = duracaoAleatoria * 1000; // Converte para milissegundos
+  setTimeout(function() {
+    iniciarAnimacaoAleatoria(elementId);
+  }, tempoAleatorio);
 }
 
-iniciarAnimacaoAleatoria();
+iniciarAnimacaoAleatoria('merda');
+iniciarAnimacaoAleatoria('merda1');
+
+
+
 
 
 
@@ -150,9 +157,9 @@ document.addEventListener('keydown', function(event) {
 });
 
 //tocar som ao tocar na tela
-document.addEventListener('touchstart', function() {
-  playAudio();
-});
+//document.addEventListener('touchstart', function() {
+ // playAudio();
+//});
 
 
 function playAudio() {
@@ -165,9 +172,12 @@ function playAudio2() {
   audio2.play();
 }
 
-//funcao para pular
+let jumpEnabled = true; // Variável de controle para permitir ou bloquear a função jump()
+
+
+//função para pular
 function jump() {
-  if (!pessoa.classList.contains("jump")) {
+  if (jumpEnabled && !pessoa.classList.contains("jump")) {
     pessoa.classList.add("jump");
     alreadyJump = true;
 
@@ -180,6 +190,8 @@ function jump() {
     }, 750);
   }
 }
+
+
 
 
 //pular ao clicar no mouse
@@ -198,40 +210,55 @@ document.addEventListener("touchstart", () => {
 });
 
 
+
+
+
 //detectar colisão
 function detectCollision() {
-  let pessoaRect = pessoa.getBoundingClientRect();
-  let merdaRect = merda.getBoundingClientRect();
+  if (jumpEnabled) {
+    let pessoaRect = pessoa.getBoundingClientRect();
+    let merdaRect = merda.getBoundingClientRect();
+    let merda1Rect = merda1.getBoundingClientRect();
 
-  if (
-    pessoaRect.right > merdaRect.left &&
-    pessoaRect.left < merdaRect.right &&
-    pessoaRect.bottom > merdaRect.top &&
-    pessoaRect.top < merdaRect.bottom
-  ) {
-    playAudio2();
-    const menu = document.querySelector('.menu');
-    const gameOverScore = document.querySelector('.game-over-score');
-    const restartButton = document.querySelector('.restart-button');
-    menu.style.display = 'block';
-    
+    if (
+      (pessoaRect.right > merdaRect.left &&
+        pessoaRect.left < merdaRect.right &&
+        pessoaRect.bottom > merdaRect.top &&
+        pessoaRect.top < merdaRect.bottom) ||
+      (pessoaRect.right > merda1Rect.left &&
+        pessoaRect.left < merda1Rect.right &&
+        pessoaRect.bottom > merda1Rect.top &&
+        pessoaRect.top < merda1Rect.bottom)
+    ) {
+      playAudio2();
+      const menu = document.querySelector('.menu');
+      const gameOverScore = document.querySelector('.game-over-score');
+      const restartButton = document.querySelector('.restart-button');
 
-    gameOverScore.textContent = `Pontuação: ${count}`;
-    count = 0;
-    pessoa.style.backgroundImage = "url(img/merda.png)";
-    merda.style.animation = "none";
-    merda.style.backgroundImage = "url()";
+      jumpEnabled = false; // Bloqueia a função jump() após a colisão
 
-    restartButton.addEventListener('click', () => {
-      menu.style.display = 'none';
-      pessoa.style.backgroundImage = "url(img/pessoa.gif)";
-      merda.style.backgroundImage = "url(img/merda.png)";
+      menu.style.display = 'block';
+      gameOverScore.textContent = `Pontuação: ${count}`;
+      count = 0;
+      pessoa.style.backgroundImage = "url(img/merda.png)";
       merda.style.animation = "none";
-    });
+      merda.style.backgroundImage = "url()";
+      merda1.style.animation = "none";
+      merda1.style.backgroundImage = "url()";
 
-    return true;
+      restartButton.addEventListener('click', () => {
+        menu.style.display = 'none';
+        pessoa.style.backgroundImage = "url(img/pessoa.gif)";
+        merda.style.backgroundImage = "url(img/merda.png)";
+        merda1.style.backgroundImage = "url(img/merda.png)";
+        merda.style.animation = "none";
+        merda1.style.animation = "none";
+        jumpEnabled = true; // Permite a função jump() após clicar no botão de reinício
+      });
+
+      return true;
+    }
   }
-
   return false;
 }
 
