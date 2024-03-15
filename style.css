@@ -5,36 +5,68 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  overflow: hidden;
 }
 
 .game {
+  
   width: 100%;
   height: 100%;
-  background: linear-gradient(#87CEEB, #E0F6FF);
+  background-image: url(img/fundo.jpg) ;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   display: flex;
   overflow: hidden;
  
 }
 
+.pontuacao {
+
+  color: white;
+
+
+}
+
+
+
 .sol{
 
+
+  
+  border-radius: 50%;
   position: absolute;
   background-image: url(img/sol.png);
   width: 25%;
   height: 25%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
+  animation: sol 30s linear infinite;
+  right: 0%;
+  /*animation-direction: alternate;*/
+ 
 }
+
+/*.sol:hover{
+  outline: 1px solid red;
+  background-image: url(img/lua.png);
+  width: 25%;
+  height: 25%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}*/
 
 .nuvens{
 
+
   position: absolute;
-  background-image: url(img/clouds.png);
-  width: 20%;
-  height: 20%;
-  background-size: 100% 100%;
-  animation: nuvens 10s linear infinite;
+  background-image: url(img/nuvens2.png);
+  width: 70%;
+  height: 40%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: nuvens 60s linear infinite;
+  /*animation-direction: alternate;*/
+ 
  
 
 }
@@ -42,11 +74,13 @@ body, html {
 
 .pessoa {
 
+
+  outline: 1px solid red;
+  border-radius: 25%;
   width: 8%;
   padding-top: 20%;
   background-image: url(img/pessoa.gif);
   background-size:100% 100%;
-  background-repeat: no-repeat;
   background-repeat: no-repeat;
   position: absolute;
   bottom: 0%;
@@ -56,23 +90,21 @@ body, html {
 
 .merda {
 
-  width: 2%;
-  height: auto;
-  padding-top: 3%; /* Isso cria uma div quadrada */
+
+  outline: 1px solid red;
+  
   background-image: url(img/merda.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  position: absolute;
-  animation: merda 2s linear infinite;
-  bottom: 0%;
-  right: 0%; /* Garante que a animação sempre comece da posição correta */
+ 
+
   }
 
 
 
   .menu {
+
+    
     display: none;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -106,10 +138,10 @@ body, html {
 
   @keyframes merda {
     0% {
-      right: 0%;
+      right:0%;
     }
     100% {
-      right: 100%;
+      right:100%;
     }
   }
 
@@ -164,9 +196,20 @@ body, html {
 
   @keyframes nuvens {
     0% {
-      right: 0%;
+      right: -70%;
     }
     100% {
       right: 100%;
     }
+
+  }
+
+  @keyframes sol {
+    0% {
+      right: -25%;
+    }
+    100% {
+      right: 100%;
+    }
+    
   }
