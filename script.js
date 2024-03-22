@@ -1,9 +1,14 @@
 const pessoa = document.querySelector(".pessoa");
-
 const pontuacao = document.querySelector('.pontuacao'); // Selecionando o elemento score
 
 let alreadyJump = false;
-let count = 0;
+var count = 0;
+
+function teste() {
+  var frase = prompt("Digite algo:");
+  console.log(frase);
+}
+
 
 
 // Lista de URLs de imagens que deseja usar como background
@@ -36,7 +41,7 @@ function changeBackgroundImage() {
 }
 
 // Chama a função para mudar a imagem de fundo a cada 30 segundos (30000 milissegundos)
-setInterval(changeBackgroundImage, 30000);
+setInterval(changeBackgroundImage, 60000);
 
 
 // Lista de URLs de imagens que deseja usar como background
@@ -69,21 +74,11 @@ function changeBackgroundImage2() {
 }
 
 // Chama a função para mudar a imagem de fundo a cada 30 segundos (30000 milissegundos)
-setInterval(changeBackgroundImage2, 30000);
+setInterval(changeBackgroundImage2, 60000);
 
 
 
 //TITANICA DE MERDA e CHUVA DE MERDA
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -105,46 +100,6 @@ function iniciarAnimacaoAleatoria(elementId) {
 
 iniciarAnimacaoAleatoria('merda');
 iniciarAnimacaoAleatoria('merda1');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -210,6 +165,15 @@ document.addEventListener("touchstart", () => {
 });
 
 
+function teste() {
+  var frase = prompt("Digite algo:");
+  console.log(frase);
+}
+
+
+
+
+
 
 
 
@@ -238,8 +202,7 @@ function detectCollision() {
       jumpEnabled = false; // Bloqueia a função jump() após a colisão
 
       menu.style.display = 'block';
-      gameOverScore.textContent = `Pontuação: ${count}`;
-      count = 0;
+      gameOverScore.textContent = `Sua Pontuação de Merda: ${count}`;
       pessoa.style.backgroundImage = "url(img/merda.png)";
       merda.style.animation = "none";
       merda.style.backgroundImage = "url()";
@@ -247,6 +210,8 @@ function detectCollision() {
       merda1.style.backgroundImage = "url()";
 
       restartButton.addEventListener('click', () => {
+        
+        count = 0;
         menu.style.display = 'none';
         pessoa.style.backgroundImage = "url(img/pessoa.gif)";
         merda.style.backgroundImage = "url(img/merda.png)";

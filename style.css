@@ -22,7 +22,12 @@ body, html {
 
 .pontuacao {
 
+
+  position: absolute;
   color: white;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
 
 }
@@ -40,9 +45,9 @@ body, html {
   height: 25%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  animation: sol 15s infinite;
-  right: -25%;
-  animation-direction: alternate;
+  animation: sol 60s linear infinite;
+  right: 0%;
+  
  
 }
 
@@ -56,7 +61,7 @@ body, html {
   height: 40%;
   background-size: 100%;
   background-repeat: no-repeat;
-  animation: nuvens 60s linear infinite;
+  animation: nuvens 60s linear infinite alternate-reverse;
 
 }
 
@@ -71,7 +76,7 @@ body, html {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   animation: navio 60s linear infinite;
-  left: -7%;
+  left: 0%;
 
 }
 
@@ -97,7 +102,7 @@ body, html {
   background-image: url(img/merda.png);
   border-radius: 25%;
   width: 3%;
-  padding-top: 2%;
+  height: 1%;
   background-size:100% 100%;
   background-repeat: no-repeat;
   position: absolute;
@@ -111,7 +116,7 @@ body, html {
     background-image: url(img/merda.png);
     border-radius: 25%;
     width: 3%;
-    padding-top: 2%;
+    height: 1%;
     background-size:100% 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -119,48 +124,6 @@ body, html {
     right: -3%;
     
  }
-
-.merda2 {
-
-      background-image: url(img/merda.png);
-      border-radius: 25%;
-      width: 3%;
-      padding-top: 2%;
-      background-size:100% 100%;
-      background-repeat: no-repeat;
-      position: absolute;
-      bottom: 0%;
-      right: -3%;
-      
-      }
-
-.merda3 {
-
-        background-image: url(img/merda.png);
-        border-radius: 25%;
-        width: 3%;
-        padding-top: 2%;
-        background-size:100% 100%;
-        background-repeat: no-repeat;
-        position: absolute;
-        bottom: 0%;
-        right: -3%;
-        
-        }
-
-.merda4 {
-
-          background-image: url(img/merda.png);
-          border-radius: 25%;
-          width: 3%;
-          padding-top: 2%;
-          background-size:100% 100%;
-          background-repeat: no-repeat;
-          position: absolute;
-          bottom: 0%;
-          right: -3%;
-          
-          }
 
 
   .menu {
@@ -172,7 +135,8 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: rgba(0, 0, 0, 0.8);
-    padding: 10%;
+    width: 50%;
+    height: 50%;
     border-radius: 5%;
     text-align: center;
     color: white;
@@ -180,6 +144,9 @@ body, html {
     
 
 }
+
+
+
 
 .restart-button {
   background-color: #4CAF50;
@@ -221,38 +188,7 @@ body, html {
     }
   }
 
-  @keyframes merda2 {
 
-    0% {
-      right:-3%;
-    }
-
-    100% {
-      right:100%;
-    }
-  }
-
-  @keyframes merda3 {
-
-    0% {
-      right:-3%;
-    }
-
-    100% {
-      right:100%;
-    }
-  }
-
-  @keyframes merda4 {
-
-    0% {
-      right:-3%;
-    }
-
-    100% {
-      right:100%;
-    }
-  }
 
   @keyframes jump {
     0% {
@@ -299,7 +235,7 @@ body, html {
 
   @keyframes navio {
     0% {
-      left: -7%;
+      left: 0%;
     }
     100% {
       left: 100%;
@@ -309,10 +245,11 @@ body, html {
 
   @keyframes sol {
     0% {
-      transform: translateX(0%);
+      right: 0%;
     }
     100% {
-      transform: translateX(-100%);
+      right: 100%;
     }
+
     
   }
